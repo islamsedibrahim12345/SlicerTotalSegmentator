@@ -3,6 +3,7 @@ import json
 import requests
 from pathlib import Path
 import slicer
+from datetime import datetime
 
 class TotalSegmentatorCloud:
     def __init__(self):
@@ -23,7 +24,11 @@ class TotalSegmentatorCloud:
                 data = {
                     'patientId': patient_id,
                     'familyId': family_id,
-                    'timestamp': str(datetime.now())
+                    'timestamp': str(datetime.now()),
+                    'metadata': {
+                        'software': 'SlicerTotalSegmentator',
+                        'version': slicer.app.applicationVersion
+                    }
                 }
                 
                 response = requests.post(
@@ -65,4 +70,17 @@ class TotalSegmentatorCloud:
             return response.json()
         except Exception as e:
             slicer.util.errorDisplay(f"Failed to update metrics: {str(e)}")
+            return None
+            
+    def get_genetic_risk_factors(self, family_id, patient_id):
+        """Get genetic risk factors based on family history"""
+        try:
+            response = requests.get(
+                f"{self.api_base_url}/analysis/genetic-risk",
+                params={'familyId': family_id, 'patientId': patient_id}
+            )
+            response.raise_for_status()
+            return response.json()
+        except Exception as e:
+            slicer.util.errorDisplay(f"Failed to get genetic risk factors: {str(e)}")
             return None
