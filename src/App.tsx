@@ -1,9 +1,11 @@
 import React from 'react'
+import { RadiologyViewer } from './components/RadiologyViewer/RadiologyViewer'
+import './index.css'
 
 function App() {
   return (
     <div className="min-h-screen bg-gray-100">
-      <h1>Family Health Platform</h1>
+      <RadiologyViewer />
     </div>
   )
 }
