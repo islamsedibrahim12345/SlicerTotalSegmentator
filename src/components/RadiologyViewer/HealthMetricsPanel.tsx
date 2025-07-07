@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '../ui/Card'
 import { Button } from '../ui/Button'
 import { 
   Heart, 
-  Lungs, 
+  Lung, 
   Brain, 
   Activity, 
   AlertTriangle, 
@@ -75,7 +75,7 @@ export const HealthMetricsPanel: React.FC<HealthMetricsPanelProps> = ({
 
   const organIcons: Record<string, React.ReactNode> = {
     heart: <Heart className="w-4 h-4" />,
-    lung: <Lungs className="w-4 h-4" />,
+    lung: <Lung className="w-4 h-4" />,
     brain: <Brain className="w-4 h-4" />,
     liver: <Activity className="w-4 h-4" />,
     kidney: <Activity className="w-4 h-4" />
