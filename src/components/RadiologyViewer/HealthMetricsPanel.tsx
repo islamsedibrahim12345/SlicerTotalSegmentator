@@ -1,19 +1,7 @@
 import React from 'react'
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/Card'
 import { Button } from '../ui/Button'
-import { 
-  Heart, 
-  Lung, 
-  Brain, 
-  Activity, 
-  AlertTriangle, 
-  TrendingUp,
-  TrendingDown,
-  Minus,
-  Info,
-  Download,
-  Share
-} from 'lucide-react'
+import { Heart, Sun as Lung, Brain, Activity, AlertTriangle, TrendingUp, TrendingDown, Minus, Info, Download, Share } from 'lucide-react'
 import { HealthMetrics, AbnormalFinding, RiskFactor } from '../../types/medical'
 import { cn } from '../../lib/utils'
 
